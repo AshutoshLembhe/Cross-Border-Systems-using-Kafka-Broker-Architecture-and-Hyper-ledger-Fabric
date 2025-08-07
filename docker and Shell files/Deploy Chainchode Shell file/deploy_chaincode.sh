@@ -11,7 +11,7 @@ CHANNEL_NAME="mychannel"
 ORDERER_ADDRESS="localhost:7050"
 ORDERER_TLS_HOSTNAME="orderer.example.com"
 
-echo "🔐 Approving chaincode for Org1..."
+echo "Approving chaincode for Org1..."
 export CORE_PEER_LOCALMSPID="Org1MSP"
 export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 export CORE_PEER_ADDRESS=localhost:7051
@@ -29,7 +29,7 @@ peer lifecycle chaincode approveformyorg \
   --cafile $ORDERER_CA \
   --signature-policy "OR('Org1MSP.peer','Org2MSP.peer')"
 
-echo "🔐 Approving chaincode for Org2..."
+echo "Approving chaincode for Org2..."
 export CORE_PEER_LOCALMSPID="Org2MSP"
 export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 export CORE_PEER_ADDRESS=localhost:9051
@@ -47,7 +47,7 @@ peer lifecycle chaincode approveformyorg \
   --cafile $ORDERER_CA \
   --signature-policy "OR('Org1MSP.peer','Org2MSP.peer')"
 
-echo "✅ Committing chaincode..."
+echo "Committing chaincode..."
 peer lifecycle chaincode commit \
   -o $ORDERER_ADDRESS \
   --ordererTLSHostnameOverride $ORDERER_TLS_HOSTNAME \
@@ -63,4 +63,4 @@ peer lifecycle chaincode commit \
   --tlsRootCertFiles $PEER0_ORG2_CA \
   --signature-policy "OR('Org1MSP.peer','Org2MSP.peer')"
 
-echo "✅ Chaincode deployment complete!"
+echo "Chaincode deployment complete!"
