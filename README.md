@@ -24,10 +24,10 @@ This project delivers a secure and decentralized messaging solution for cross-bo
 ├── deploy_chaincode.sh # Chaincode redeployment script
 ├── docker-compose.grafana.yml (optional monitoring stack)
 ├── README.md
+-----------------------------------------
+Prerequisites (Windows-based Setup)
 
-## Prerequisites (Windows-based Setup)
-
-### 1. Enable WSL2 and Virtual Machine Platform:
+Enable WSL2 and Virtual Machine Platform:
 
 ```powershell
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
